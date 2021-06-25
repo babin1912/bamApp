@@ -1,4 +1,7 @@
+drop table if exists cards;
+
 drop table if exists persons;
+
 create table if not exists persons (
     id int not null AUTO_INCREMENT,
     firstname varchar(255) not null,
@@ -8,7 +11,7 @@ create table if not exists persons (
     primary key(id)
 );
 
-drop table if exists cards;
+
 create table if not exists cards (
     cardNumber varchar(16),
     userId int unique,
