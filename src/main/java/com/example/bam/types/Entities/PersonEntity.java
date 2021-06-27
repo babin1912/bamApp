@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "people")
-public class Person {
+public class PersonEntity {
 
 
     @Id
@@ -34,10 +34,10 @@ public class Person {
     @Column(name ="account_ballance")
     private int accountBalance;
 
-    public Person() {
+    public PersonEntity() {
     }
 
-    public Person(String firstName, String lastName, char gender, int accountBalance) {
+    public PersonEntity(String firstName, String lastName, char gender, int accountBalance) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;

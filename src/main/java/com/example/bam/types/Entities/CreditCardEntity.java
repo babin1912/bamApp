@@ -10,7 +10,7 @@ import javax.persistence.*;
         @StoredProcedureParameter(mode = ParameterMode.OUT, name = "personId", type = Long.class)
 })
 @Table(name = "cards")
-public class CreditCard {
+public class CreditCardEntity {
 
 
     @Id
@@ -21,14 +21,14 @@ public class CreditCard {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="person_id", referencedColumnName="person_id",foreignKey=@ForeignKey(name = "fk_person_id"),
             nullable = false)
-    private Person person;
+    private PersonEntity owner;
 
-    public CreditCard() {
+    public CreditCardEntity() {
     }
 
-    public CreditCard(String cardNumber, Person person) {
+    public CreditCardEntity(String cardNumber, PersonEntity person) {
         this.cardNumber = cardNumber;
-        this.person = person;
+        this.owner = person;
     }
 
     public void setCardNumber(String cardId) {
@@ -39,12 +39,12 @@ public class CreditCard {
         return cardNumber;
     }
 
-    public Person getPerson() {
-        return person;
+    public PersonEntity getOwner() {
+        return owner;
     }
 
-    public void setPerson(Person person) {
-        this.person = person;
+    public void setOwner(PersonEntity person) {
+        this.owner = person;
     }
 
 }
