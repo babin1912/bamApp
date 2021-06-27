@@ -3,6 +3,12 @@ package com.example.bam.Entities;
 import javax.persistence.*;
 
 @Entity
+@NamedStoredProcedureQuery(name = "Card.cardById",
+        procedureName = "card_by_id", parameters = {
+        @StoredProcedureParameter(mode = ParameterMode.IN, name = "id", type = String.class),
+        @StoredProcedureParameter(mode = ParameterMode.OUT, name = "cardNumber", type = String.class),
+        @StoredProcedureParameter(mode = ParameterMode.OUT, name = "personId", type = Long.class)
+})
 @Table(name = "cards")
 public class CreditCard {
 
@@ -11,7 +17,7 @@ public class CreditCard {
     @Column(name ="card_number")
     private String cardNumber;
 
-    
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="person_id", referencedColumnName="person_id",foreignKey=@ForeignKey(name = "fk_person_id"),
             nullable = false)
