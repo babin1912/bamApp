@@ -1,11 +1,6 @@
 package com.example.bam.types;
 
-import com.sun.istack.NotNull;
-
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import java.util.Set;
 
 public class Person {
 
@@ -18,6 +13,8 @@ public class Person {
     private char gender;
 
     private int accountBalance;
+
+    private Set<CreditCard> creditCards;
 
     public Person(Long id, String firstName, String lastName, char gender, int accountBalance) {
         this.id = id;
@@ -66,5 +63,13 @@ public class Person {
 
     public void setAccountBalance(int accountBalance) {
         this.accountBalance = accountBalance;
+    }
+
+    public Set<CreditCard> getCreditCards() {
+        return creditCards;
+    }
+
+    public void setCreditCards(Set<CreditCard> creditCards) {
+        this.creditCards = creditCards;
     }
 }
