@@ -4,7 +4,7 @@ import com.example.bam.types.BankAccount;
 
 public interface IMoneyTransfer {
 
-    int startingValue = 0; // they can have static parameter ;)
+    int startingValue = 0; // they can have parameter ;) i knew they cannot have constructor (in java) but not params ;)
 
     boolean receiveMoney(int amount, BankAccount account);
 

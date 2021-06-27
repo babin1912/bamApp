@@ -1,10 +1,12 @@
 package com.example.bam.types;
 
 import com.example.bam.interfaces.IMoneyTransfer;
+import com.example.bam.interfaces.IPayingDevice;
 
-public class BankAccount {
 
-    private CreditCard card;
+public class BankAccount implements IMoneyTransfer{
+
+    private IPayingDevice payingDevice;
 
     private int balance;
 
@@ -12,9 +14,32 @@ public class BankAccount {
 
     private Person owner;
 
-    public BankAccount(String accountNumber, Person owner) {
+    private BankAccountType bankAccountType;
+
+    public BankAccount(String accountNumber, Person owner, IPayingDevice payingDevice, BankAccountType bankAccountType) {
         this.accountNumber = accountNumber;
         this.owner = owner;
+        this.payingDevice = payingDevice;
+        this.bankAccountType = bankAccountType;
+        this.balance = IMoneyTransfer.startingValue;
+    }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "accountNumber='" + accountNumber + '\'' +
+                ", owner=" + owner +
+                '}';
+    }
+
+    @Override
+    public boolean sendMoney(int amount, BankAccount account) {
+        return false;
+    }
+
+    @Override
+    public boolean receiveMoney(int amount, BankAccount account) {
+        return false;
     }
 
     /* generated */
@@ -42,20 +67,11 @@ public class BankAccount {
         this.balance = balance;
     }
 
-    public CreditCard getCard() {
-        return card;
+    public IPayingDevice getPayingDevice() {
+        return payingDevice;
     }
 
-    public void setCard(CreditCard card) {
-        this.card = card;
+    public void setPayingDevice(IPayingDevice payingDevice) {
+        this.payingDevice = payingDevice;
     }
-
-    @Override
-    public String toString() {
-        return "Account{" +
-                "accountNumber='" + accountNumber + '\'' +
-                ", owner=" + owner +
-                '}';
-    }
-
 }
