@@ -1,12 +1,8 @@
-package com.example.bam.Entities;
+package com.example.bam.types.Entities;
 
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
-import javax.transaction.Transactional;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "people")

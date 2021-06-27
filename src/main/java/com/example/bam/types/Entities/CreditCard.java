@@ -1,4 +1,4 @@
-package com.example.bam.Entities;
+package com.example.bam.types.Entities;
 
 import javax.persistence.*;
 

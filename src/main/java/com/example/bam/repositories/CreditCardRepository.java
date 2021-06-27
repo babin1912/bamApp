@@ -1,11 +1,9 @@
 package com.example.bam.repositories;
 
 
-import com.example.bam.Entities.CreditCard;
+import com.example.bam.types.Entities.CreditCard;
 import io.lettuce.core.dynamic.annotation.Param;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
