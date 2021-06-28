@@ -7,4 +7,8 @@ public abstract class MoneyCalculator {
     public static int calculateAvailableMoney(BankAccount account) {
         return account.getBalance();
     }
+
+    public static boolean isTransactional(int amount, BankAccount account) {
+        return MoneyCalculator.calculateAvailableMoney(account) > amount;
+    }
 }

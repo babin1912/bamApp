@@ -5,5 +5,5 @@ import com.example.bam.types.BankAccount;
 public interface IPayingDevice {
 
 
-     boolean pay(int amount, BankAccount account);
+     boolean payable(int amount, BankAccount account);
 }

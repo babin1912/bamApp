@@ -21,9 +21,12 @@ import org.springframework.test.web.client.MockRestServiceServer;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.web.client.RestTemplate;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.asyncDispatch;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(SpringExtension.class)
@@ -68,13 +71,19 @@ class PersonControllerTest {
 
     @Test
     void saveNewPerson() throws Exception {
-        ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
-        mvc.perform( MockMvcRequestBuilders
+        ObjectMapper ow = new ObjectMapper();
+        var result = mvc.perform( MockMvcRequestBuilders
                 .post("/save")
+                .contentType(MediaType.APPLICATION_JSON)
                 .content(ow.writeValueAsString(
                         new Person(1000L, "adam", "adamovid", 'M', 0)))
-                .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isCreated());
+                //.andExpect(request().asyncStarted())
+                .andExpect(status().isOk())
+                .andReturn();
+        /*result.getAsyncResult(5000L);*/
+
+        /*mvc.perform(asyncDispatch(result))
+                .andExpect(status().isCreated());;*/
     }
 }

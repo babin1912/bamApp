@@ -2,6 +2,7 @@ package com.example.bam.types;
 
 import com.example.bam.interfaces.IMoneyTransfer;
 import com.example.bam.interfaces.IPayingDevice;
+import com.example.bam.services.MoneyCalculator;
 
 
 public class BankAccount implements IMoneyTransfer{
@@ -15,6 +16,9 @@ public class BankAccount implements IMoneyTransfer{
     private Person owner;
 
     private BankAccountType bankAccountType;
+
+    public BankAccount() {
+    }
 
     public BankAccount(String accountNumber, Person owner, IPayingDevice payingDevice, BankAccountType bankAccountType) {
         this.accountNumber = accountNumber;

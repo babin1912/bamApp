@@ -40,13 +40,12 @@ public class PersonController {
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     @ResponseBody
     public ResponseEntity<String>  saveNewPerson(@RequestBody Person person) {
-        return new ResponseEntity<>("Person was saved", HttpStatus.NOT_FOUND);
-        /*try {
+        try {
             personSetter.saveNewPerson(person);
             return new ResponseEntity<>("Person was saved", HttpStatus.CREATED);
         } catch (Exception exception) {
             return new ResponseEntity<>( "Person or one of cards already exists",HttpStatus.NOT_FOUND);
-        }*/
+        }
     }
 
     private ResponseEntity<Person> getPersonByIdResponse(long personId) {

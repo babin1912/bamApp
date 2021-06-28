@@ -11,7 +11,7 @@ public class CreditCard extends Card implements IPayingDevice {
         super(id, owner);
     }
 
-    public boolean pay(int amount, BankAccount account) {
+    public boolean payable(int amount, BankAccount account) {
         return MoneyCalculator.calculateAvailableMoney(account) > amount;
 
     }
