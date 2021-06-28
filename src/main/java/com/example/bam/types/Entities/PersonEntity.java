@@ -37,7 +37,8 @@ public class PersonEntity {
     public PersonEntity() {
     }
 
-    public PersonEntity(String firstName, String lastName, char gender, int accountBalance) {
+    public PersonEntity(long id,String firstName, String lastName, char gender, int accountBalance) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;

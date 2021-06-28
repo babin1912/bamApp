@@ -7,19 +7,19 @@ public class Card {
 
     private String id;
 
-    private PersonEntity owner;
+    private long owner;
 
-    public Card(String id, PersonEntity owner) {
+    public Card(String id, long owner) {
         this.id = id;
         this.owner = owner;
     }
 
     /* generated code */
-    public PersonEntity getOwner() {
+    public long getOwner() {
         return owner;
     }
 
-    public void setOwner(PersonEntity owner) {
+    public void setOwner(long owner) {
         this.owner = owner;
     }
 

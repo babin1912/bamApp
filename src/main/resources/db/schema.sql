@@ -65,3 +65,11 @@ SELECT * FROM people WHERE person_id = id
     LIMIT 1;
 END
 $$
+drop procedure if exists get_card_by_user_id;
+$$
+CREATE PROCEDURE `get_card_by_user_id`(IN personId bigint)
+BEGIN
+SELECT * FROM cards WHERE person_id = personId
+    LIMIT 1;
+END
+$$

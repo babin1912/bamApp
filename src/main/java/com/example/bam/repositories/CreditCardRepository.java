@@ -21,6 +21,9 @@ public interface CreditCardRepository extends CrudRepository<CreditCardEntity, S
     @Query(value = "call find_all_cards();", nativeQuery = true) // procedure using query
     Set<CreditCardEntity> getAll();
 
+    @Query(value = "call get_card_by_user_id(:personId);", nativeQuery = true) // procedure using query
+    Set<CreditCardEntity> getAllByUserId(@Param("personId") long personId);
+
     @Procedure(name = "Card.cardById")// multiple procedure output
     Map<String, Object> cardById(String id);
 

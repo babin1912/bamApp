@@ -19,16 +19,6 @@ public class BAMApplication {
         SpringApplication.run(BAMApplication.class, args);
     }
 
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
-
-    @Autowired
-    private CreditCardRepository creditCardRepository;
-
-    @Autowired
-    private PersonRepository personRepository;
-
-
 
     @Bean
     CommandLineRunner runner(CreditCardRepository creditCardRepository, PersonRepository personRepository){

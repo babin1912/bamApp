@@ -17,19 +17,13 @@ public class CreditCardEntity {
     @Column(name ="card_number")
     private String cardNumber;
 
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="person_id", referencedColumnName="person_id",foreignKey=@ForeignKey(name = "fk_person_id"),
-            nullable = false)
-    private PersonEntity owner;
+    @Column(name = "person_id")
+    private long owner;
 
     public CreditCardEntity() {
     }
 
-    public CreditCardEntity(String cardNumber, PersonEntity person) {
-        this.cardNumber = cardNumber;
-        this.owner = person;
-    }
+
 
     public void setCardNumber(String cardId) {
         this.cardNumber = cardId;
@@ -39,6 +33,19 @@ public class CreditCardEntity {
         return cardNumber;
     }
 
+    public CreditCardEntity(String cardNumber, long person) {
+        this.cardNumber = cardNumber;
+        this.owner = person;
+    }
+
+/*    @JoinColumn(name="person_id", referencedColumnName="person_id",foreignKey=@ForeignKey(name = "fk_person_id"),
+            nullable = false)
+    private PersonEntity owner;
+   @ManyToOne(fetch = FetchType.EAGER)
+    public CreditCardEntity(String cardNumber, PersonEntity person) {
+        this.cardNumber = cardNumber;
+        this.owner = person;
+    }
     public PersonEntity getOwner() {
         return owner;
     }
@@ -46,5 +53,13 @@ public class CreditCardEntity {
     public void setOwner(PersonEntity person) {
         this.owner = person;
     }
+    */
 
+    public long getOwner() {
+        return owner;
+    }
+
+    public void setOwner(long owner) {
+        this.owner = owner;
+    }
 }

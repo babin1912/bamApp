@@ -7,7 +7,7 @@ import com.example.bam.services.MoneyCalculator;
 public class CreditCard extends Card implements IPayingDevice {
 
 
-    public CreditCard(String id, PersonEntity owner) {
+    public CreditCard(String id, long owner) {
         super(id, owner);
     }
 
