@@ -12,25 +12,9 @@ import org.springframework.stereotype.Service;
 import java.util.Map;
 import java.util.Optional;
 
-public abstract class EntitiesConvertorService {
+public abstract class EntitiesConvertorService implements IEntityService{
 
 
-    public static CreditCard creditCardFromEntity(CreditCardEntity creditCardEntity) {
-        return new CreditCard(creditCardEntity.getCardNumber(), creditCardEntity.getOwner());
-    }
 
-    public static Person personFromEntity(PersonEntity personEntity) {
-        return IEntityService.personFromEntity(personEntity);
-    }
 
-    public static PersonEntity personToEntity(Person person) {
-        return IEntityService.personToEntity(person);
-    }
-
-    public static CreditCardEntity creditCardToEntity(CreditCard creditCard) {
-        return new CreditCardEntity(
-                creditCard.getId(),
-                creditCard.getOwner()
-        );
-    }
 }

@@ -6,8 +6,6 @@ import com.example.bam.types.Entities.PersonEntity;
 import com.example.bam.types.Person;
 
 public interface IEntityService {
-    CreditCard creditCardFromEntity(CreditCardEntity creditCardEntity);
-
    static Person personFromEntity(PersonEntity personEntity) {
         return new Person(
                 personEntity.getId(),
@@ -24,6 +22,16 @@ public interface IEntityService {
                 person.getLastName(),
                 person.getGender(),
                 person.getAccountBalance()
+        );
+    }
+
+    static CreditCard creditCardFromEntity(CreditCardEntity creditCardEntity) {
+        return new CreditCard(creditCardEntity.getCardNumber(), creditCardEntity.getOwner());
+    }
+    public static CreditCardEntity creditCardToEntity(CreditCard creditCard) {
+        return new CreditCardEntity(
+                creditCard.getId(),
+                creditCard.getOwner()
         );
     }
 

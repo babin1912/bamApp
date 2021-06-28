@@ -4,6 +4,7 @@ import com.example.bam.controllers.interfaces.IPersonGetter;
 import com.example.bam.repositories.CreditCardRepository;
 import com.example.bam.repositories.PersonRepository;
 import com.example.bam.services.EntitiesConvertorService;
+import com.example.bam.services.interfaces.IEntityService;
 import com.example.bam.types.Entities.PersonEntity;
 import com.example.bam.types.Person;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,7 @@ public class PersonGetter implements IPersonGetter {
     public Set<Person> getAllPeople() {
         return personRepository.getAll()
                 .stream()
-                .map(EntitiesConvertorService::personFromEntity)
+                .map(IEntityService::personFromEntity)
                 .collect(Collectors.toSet());
     }
 
@@ -42,13 +43,13 @@ public class PersonGetter implements IPersonGetter {
     }
 
     private Person assignCreditCardsToPersonFromEntity(PersonEntity personEntity) {
-        var p = EntitiesConvertorService.personFromEntity(personEntity);
+        var p = IEntityService.personFromEntity(personEntity);
 
         p.setCreditCards(
                 creditCardRepository
                     .getAllByUserId(personEntity.getId())
                     .stream()
-                    .map(EntitiesConvertorService::creditCardFromEntity)
+                    .map(IEntityService::creditCardFromEntity)
                     .collect(Collectors.toSet())
         );
         return p;
