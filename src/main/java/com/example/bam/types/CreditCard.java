@@ -6,6 +6,8 @@ import com.example.bam.services.MoneyCalculator;
 
 public class CreditCard extends Card implements IPayingDevice {
 
+    public CreditCard() {
+    }
 
     public CreditCard(String id, long owner) {
         super(id, owner);

@@ -9,6 +9,9 @@ public class Card {
 
     private long owner;
 
+    public Card() {
+    }
+
     public Card(String id, long owner) {
         this.id = id;
         this.owner = owner;

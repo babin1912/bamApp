@@ -1,44 +1,44 @@
 package com.example.bam;
 
-import com.example.bam.repositories.BankAccountRepository;
 import com.example.bam.repositories.CreditCardRepository;
 import com.example.bam.repositories.PersonRepository;
-import com.example.bam.types.BankAccountType;
-import com.example.bam.types.Entities.BankAccountEntity;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
-import org.springframework.core.task.AsyncTaskExecutor;
+import org.springframework.core.env.AbstractEnvironment;
+import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
-import org.springframework.web.servlet.config.annotation.AsyncSupportConfigurer;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.WebApplicationInitializer;
 
-import java.util.List;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
 
 
 @EnableJpaRepositories
 @SpringBootApplication
-public class BAMApplication  {
+public class BAMApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
+        System.setProperty(AbstractEnvironment.ACTIVE_PROFILES_PROPERTY_NAME, args[0]);
         SpringApplication.run(BAMApplication.class, args);
     }
 
     @Autowired
+    private static ConfigurableEnvironment env;
+
+  /*  @Autowired
     private BankAccountRepository bar;
+
+    @Autowired
+    private PersonRepository personRepository;*/
 
     @Bean
     CommandLineRunner runner(CreditCardRepository creditCardRepository, PersonRepository personRepository){
         return args -> {
-            BankAccountEntity bae = new BankAccountEntity(1L, null, 0 , "000", null, BankAccountType.NORMAL);
-            bar.save(bae);
-            var peter = bar.findAll();
-            System.out.println(peter.get(0));
-            peter.get(0);
         };
     }
 }

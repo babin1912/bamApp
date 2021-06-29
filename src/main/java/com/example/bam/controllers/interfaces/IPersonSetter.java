@@ -4,5 +4,5 @@ import com.example.bam.types.Person;
 
 public interface IPersonSetter {
 
-    void saveNewPerson(Person person) throws Exception;
+    Person saveNewPerson(Person person) throws Exception;
 }

@@ -1,5 +1,6 @@
 package com.example.bam.types;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class Person {
@@ -14,7 +15,10 @@ public class Person {
 
     private int accountBalance;
 
-    private Set<CreditCard> creditCards;
+    private Set<CreditCard> creditCards = new HashSet<>();
+
+    public Person() {
+    }
 
     public Person(Long id, String firstName, String lastName, char gender, int accountBalance) {
         this.id = id;
@@ -71,5 +75,17 @@ public class Person {
 
     public void setCreditCards(Set<CreditCard> creditCards) {
         this.creditCards = creditCards;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", gender=" + gender +
+                ", accountBalance=" + accountBalance +
+                ", creditCards=" + creditCards +
+                '}';
     }
 }

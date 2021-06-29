@@ -13,15 +13,11 @@ import java.util.List;
 @Repository
 public class BankAccountRepository {
 
-
-
-
-
     private HashOperations<String, Long, BankAccountEntity> hashOp;
 
     @Autowired
     @Qualifier("ridisik")
-    public void setTemplate(RedisTemplate<String, BankAccount> template) {
+    public void setTemplate(RedisTemplate template) {
         this.hashOp = template.opsForHash();
 
     }
@@ -38,7 +34,7 @@ public class BankAccountRepository {
     }
 
     public BankAccountEntity findProductById(long id) {
-        return (BankAccountEntity) hashOp.get(HASH_KEY, id);
+        return hashOp.get(HASH_KEY, id);
     }
 
     public void deleteAccount(long id) {

@@ -73,3 +73,4 @@ SELECT * FROM cards WHERE person_id = personId
     LIMIT 1;
 END
 $$
+

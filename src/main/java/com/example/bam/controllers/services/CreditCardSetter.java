@@ -2,9 +2,9 @@ package com.example.bam.controllers.services;
 
 import com.example.bam.controllers.interfaces.ICreditCardSetter;
 import com.example.bam.repositories.CreditCardRepository;
-import com.example.bam.services.EntitiesConvertorService;
 import com.example.bam.services.interfaces.IEntityService;
 import com.example.bam.types.CreditCard;
+import com.example.bam.types.Entities.CreditCardEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +18,7 @@ public class CreditCardSetter implements ICreditCardSetter {
         this.creditCardRepository = creditCardRepository;
     }
 
-    public void saveNewCard(CreditCard creditCard) {
-        creditCardRepository.save(IEntityService.creditCardToEntity(creditCard));
+    public CreditCardEntity saveNewCard(CreditCard creditCard) {
+        return creditCardRepository.save(IEntityService.creditCardToEntity(creditCard));
     }
 }
