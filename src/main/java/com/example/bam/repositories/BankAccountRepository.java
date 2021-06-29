@@ -1,5 +1,6 @@
 package com.example.bam.repositories;
 
+import com.example.bam.types.BankAccount;
 import com.example.bam.types.Entities.BankAccountEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -16,11 +17,11 @@ public class BankAccountRepository {
 
 
 
-    private HashOperations hashOp;
+    private HashOperations<String, Long, BankAccountEntity> hashOp;
 
     @Autowired
     @Qualifier("ridisik")
-    public void setTemplate(RedisTemplate template) {
+    public void setTemplate(RedisTemplate<String, BankAccount> template) {
         this.hashOp = template.opsForHash();
 
     }
