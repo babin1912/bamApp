@@ -1,4 +1,7 @@
-
+drop table if exists cards
+    $$
+drop table if exists people
+    $$
 
 create table if not exists people (
     person_id varchar(8) not null,

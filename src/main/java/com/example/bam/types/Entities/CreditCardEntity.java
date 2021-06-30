@@ -18,7 +18,7 @@ public class CreditCardEntity {
     private String cardNumber;
 
     @Column(name = "person_id")
-    private long owner;
+    private String owner;
 
     public CreditCardEntity() {
     }
@@ -33,7 +33,7 @@ public class CreditCardEntity {
         return cardNumber;
     }
 
-    public CreditCardEntity(String cardNumber, long person) {
+    public CreditCardEntity(String cardNumber, String person) {
         this.cardNumber = cardNumber;
         this.owner = person;
     }
@@ -55,11 +55,11 @@ public class CreditCardEntity {
     }
     */
 
-    public long getOwner() {
+    public String getOwner() {
         return owner;
     }
 
-    public void setOwner(long owner) {
+    public void setOwner(String owner) {
         this.owner = owner;
     }
 }

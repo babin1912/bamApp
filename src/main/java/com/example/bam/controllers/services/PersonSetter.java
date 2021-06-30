@@ -1,7 +1,7 @@
 package com.example.bam.controllers.services;
 
 import com.example.bam.controllers.interfaces.ICreditCardSetter;
-import com.example.bam.controllers.interfaces.IPersonSetter;
+import com.example.bam.controllers.interfaces.ITypeSetter;
 import com.example.bam.repositories.CreditCardRepository;
 import com.example.bam.repositories.PersonRepository;
 import com.example.bam.services.interfaces.IEntityService;
@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PersonSetter implements IPersonSetter {
+public class PersonSetter implements ITypeSetter<Person> {
 
     private PersonRepository personRepository;
 

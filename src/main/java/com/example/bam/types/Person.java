@@ -5,7 +5,7 @@ import java.util.Set;
 
 public class Person {
 
-    private Long id;
+    private String id;
 
     private String firstName;
 
@@ -20,7 +20,7 @@ public class Person {
     public Person() {
     }
 
-    public Person(Long id, String firstName, String lastName, char gender, int accountBalance) {
+    public Person(String id, String firstName, String lastName, char gender, int accountBalance) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -28,12 +28,16 @@ public class Person {
         this.accountBalance = accountBalance;
     }
 
+    public static Person getTestPerson(String id) {
+        return new Person(id, "peter", "frantisek", 'M', 0);
+    }
+
     /* generated */
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

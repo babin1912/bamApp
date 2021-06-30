@@ -7,22 +7,22 @@ public class Card {
 
     private String id;
 
-    private long owner;
+    private String owner;
 
     public Card() {
     }
 
-    public Card(String id, long owner) {
+    public Card(String id, String owner) {
         this.id = id;
         this.owner = owner;
     }
 
     /* generated code */
-    public long getOwner() {
+    public String getOwner() {
         return owner;
     }
 
-    public void setOwner(long owner) {
+    public void setOwner(String owner) {
         this.owner = owner;
     }
 

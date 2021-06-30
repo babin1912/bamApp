@@ -1,9 +1,8 @@
 package com.example.bam.controllers.services;
 
-import com.example.bam.controllers.interfaces.IPersonGetter;
+import com.example.bam.controllers.interfaces.ITypeGetter;
 import com.example.bam.repositories.CreditCardRepository;
 import com.example.bam.repositories.PersonRepository;
-import com.example.bam.services.EntitiesConvertorService;
 import com.example.bam.services.interfaces.IEntityService;
 import com.example.bam.types.Entities.PersonEntity;
 import com.example.bam.types.Person;
@@ -14,7 +13,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
-public class PersonGetter implements IPersonGetter {
+public class PersonGetter implements ITypeGetter<Person> {
 
     private PersonRepository personRepository;
 
@@ -28,7 +27,7 @@ public class PersonGetter implements IPersonGetter {
     }
 
     @Override
-    public Set<Person> getAllPeople() {
+    public Set<Person> getAll() {
         return personRepository.getAll()
                 .stream()
                 .map(IEntityService::personFromEntity)
@@ -36,7 +35,7 @@ public class PersonGetter implements IPersonGetter {
     }
 
     @Override
-    public Person getPersonById(long id) {
+    public Person getById(String id) {
         return personRepository.getPersonById(id)
                 .map(this::assignCreditCardsToPersonFromEntity)
                 .orElse(null);

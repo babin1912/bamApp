@@ -25,16 +25,14 @@ public class BAMApplication extends SpringBootServletInitializer {
     public static void main(String[] args) {
         System.setProperty(AbstractEnvironment.ACTIVE_PROFILES_PROPERTY_NAME, args[0]);
         SpringApplication.run(BAMApplication.class, args);
+        System.out.println(msg);
     }
 
     @Autowired
     private static ConfigurableEnvironment env;
 
-  /*  @Autowired
-    private BankAccountRepository bar;
-
-    @Autowired
-    private PersonRepository personRepository;*/
+    @Value("${msg}")
+    private static String msg;
 
     @Bean
     CommandLineRunner runner(CreditCardRepository creditCardRepository, PersonRepository personRepository){

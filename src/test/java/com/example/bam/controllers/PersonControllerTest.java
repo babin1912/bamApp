@@ -79,7 +79,7 @@ class PersonControllerTest {
                 .post("/save")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(ow.writeValueAsString(
-                        new Person(1000L, "adam", "adamovid", 'M', 0)))
+                        new Person("00", "adam", "adamovid", 'M', 0)))
                 .accept(MediaType.APPLICATION_JSON))
                 //.andExpect(request().asyncStarted())
                 .andExpect(status().isOk())

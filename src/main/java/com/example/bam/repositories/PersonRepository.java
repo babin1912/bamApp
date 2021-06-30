@@ -10,10 +10,10 @@ import java.util.Optional;
 import java.util.Set;
 
 @Repository
-public interface PersonRepository extends JpaRepository<PersonEntity, Long> {
+public interface PersonRepository extends JpaRepository<PersonEntity, String> {
 
     @Query(value = "call get_person_by_id(:id);", nativeQuery = true)
-    Optional<PersonEntity> getPersonById(@Param("id") long id);
+    Optional<PersonEntity> getPersonById(@Param("id") String id);
 
     @Query(value = "call find_all_people();", nativeQuery = true)
     Set<PersonEntity> getAll();

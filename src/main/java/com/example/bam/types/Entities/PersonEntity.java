@@ -10,9 +10,8 @@ public class PersonEntity {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="person_id")
-    private Long id;
+    private String id;
 
 
     @NotNull
@@ -37,7 +36,7 @@ public class PersonEntity {
     public PersonEntity() {
     }
 
-    public PersonEntity(long id,String firstName, String lastName, char gender, int accountBalance) {
+    public PersonEntity(String id,String firstName, String lastName, char gender, int accountBalance) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -45,11 +44,11 @@ public class PersonEntity {
         this.accountBalance = accountBalance;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 

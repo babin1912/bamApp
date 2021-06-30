@@ -9,8 +9,12 @@ public class CreditCard extends Card implements IPayingDevice {
     public CreditCard() {
     }
 
-    public CreditCard(String id, long owner) {
+    public CreditCard(String id, String owner) {
         super(id, owner);
+    }
+
+    public static CreditCard getTestCard(String cardNumber, String personId) {
+        return new CreditCard(cardNumber, personId);
     }
 
     public boolean payable(int amount, BankAccount account) {

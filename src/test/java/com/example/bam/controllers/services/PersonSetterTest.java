@@ -38,7 +38,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import static org.junit.jupiter.api.Assertions.*;
 import static reactor.core.publisher.Mono.when;
 
-@DataJpaTest
 @ExtendWith(MockitoExtension.class)/*
 @RunWith(SpringJUnit4ClassRunner.class)*/
 class PersonSetterTest {
@@ -72,7 +71,7 @@ class PersonSetterTest {
     void saveNewPerson() throws Exception {
         Person originalPerson = new Person();
         originalPerson.setFirstName("magda");
-        originalPerson.setId(2000L);
+        originalPerson.setId("00");
         var newPerson = personSetter.saveNewPerson(originalPerson);
         assertTrue(originalPerson.getId() == newPerson.getId());
     }
