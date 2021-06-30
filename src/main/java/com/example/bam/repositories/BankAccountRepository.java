@@ -4,12 +4,14 @@ import com.example.bam.types.BankAccount;
 import com.example.bam.types.Entities.BankAccountEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Profile;
 import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Profile("production")
 @Repository
 public class BankAccountRepository {
 
@@ -17,7 +19,7 @@ public class BankAccountRepository {
 
     @Autowired
     @Qualifier("ridisik")
-    public void setTemplate(RedisTemplate template) {
+    public void setTemplate(RedisTemplate<String, BankAccount> template) {
         this.hashOp = template.opsForHash();
 
     }

@@ -9,20 +9,23 @@ class MoneyCalculatorTest {
 
     @Test
     void calculateAvailableMoneyEnough() {
-        BankAccount bankAccount = new BankAccount();
         int amountOfMoney = 5;
-        bankAccount.setBalance(amountOfMoney);
+        var bankAccount = getTestAccount(amountOfMoney);
         assertTrue(MoneyCalculator.calculateAvailableMoney(bankAccount) <= amountOfMoney);
     }
-    @Test
-    void calculateAvailableMoneyNotEnough() {
-        BankAccount bankAccount = new BankAccount();
-        int amountOfMoney = 5;
+
+    private BankAccount getTestAccount(int amountOfMoney) {
+        var bankAccount = new BankAccount();
+
         bankAccount.setBalance(amountOfMoney);
-        assertTrue(MoneyCalculator.calculateAvailableMoney(bankAccount) > (amountOfMoney-1));
+        return bankAccount;
     }
 
     @Test
-    void isTransactional() {
+    void calculateAvailableMoneyNotEnough() {
+        int amountOfMoney = 5;
+        var bankAccount = getTestAccount(amountOfMoney);
+        assertTrue(MoneyCalculator.calculateAvailableMoney(bankAccount) > (amountOfMoney-1));
     }
+
 }

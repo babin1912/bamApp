@@ -5,7 +5,7 @@ import com.example.bam.interfaces.IPayingDevice;
 import com.example.bam.services.MoneyCalculator;
 
 
-public class BankAccount implements IMoneyTransfer{
+public class BankAccount {
 
     private IPayingDevice payingDevice;
 
@@ -36,15 +36,6 @@ public class BankAccount implements IMoneyTransfer{
                 '}';
     }
 
-    @Override
-    public boolean sendMoney(int amount, BankAccount account) {
-        return false;
-    }
-
-    @Override
-    public boolean receiveMoney(int amount, BankAccount account) {
-        return false;
-    }
 
     /* generated */
     public String getAccountNumber() {
