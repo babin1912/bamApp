@@ -3,6 +3,7 @@ package com.example.bam.controllers;
 import com.example.bam.controllers.interfaces.ITypeGetter;
 import com.example.bam.controllers.interfaces.ITypeSetter;
 import com.example.bam.controllers.services.PersonGetter;
+import com.example.bam.controllers.services.PersonSetter;
 import com.example.bam.types.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,7 +21,7 @@ public class PersonController {
     private ITypeSetter<Person> personSetter;
 
     @Autowired
-    public PersonController(PersonGetter personGetter, ITypeSetter<Person> personSetter) {
+    public PersonController(PersonGetter personGetter, PersonSetter personSetter) {
         this.personGetter = personGetter;
         this.personSetter = personSetter;
     }

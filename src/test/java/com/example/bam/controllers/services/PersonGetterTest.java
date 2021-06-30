@@ -60,6 +60,10 @@ class PersonGetterTest {
     }
     @AfterEach
     void removePerson(){
-        personRepository.delete(personRepository.getPersonById(person_id).get());
+        var person = personRepository.getPersonById(person_id);
+        if (person.isPresent())
+        personRepository.delete(person.get());
+        else
+            throw new NullPointerException();
     }
 }
