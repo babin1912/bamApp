@@ -1,8 +1,9 @@
 package com.example.bam.types;
 
 
-import com.example.bam.types.Entities.PersonEntity;
-
+/**
+ * Class presenting Card ;)
+ */
 public class Card {
 
     private String id;

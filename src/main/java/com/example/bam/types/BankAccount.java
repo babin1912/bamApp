@@ -4,7 +4,11 @@ import com.example.bam.interfaces.IMoneyTransfer;
 import com.example.bam.interfaces.IPayingDevice;
 import com.example.bam.services.MoneyCalculator;
 
-
+/**
+ * Bank account class did not really used because was no need for application need
+ * but i used it to store some data in noSql database ;)
+ * I could save Credit card or Person but i wanted to practise relationships without hibernate ;)
+ */
 public class BankAccount {
 
     private IPayingDevice payingDevice;
@@ -68,5 +72,13 @@ public class BankAccount {
 
     public void setPayingDevice(IPayingDevice payingDevice) {
         this.payingDevice = payingDevice;
+    }
+
+    public BankAccountType getBankAccountType() {
+        return bankAccountType;
+    }
+
+    public void setBankAccountType(BankAccountType bankAccountType) {
+        this.bankAccountType = bankAccountType;
     }
 }

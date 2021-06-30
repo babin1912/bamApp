@@ -1,8 +1,13 @@
 package com.example.bam.types;
 
+import org.springframework.context.annotation.Profile;
+
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Presenting person in application
+ */
 public class Person {
 
     private String id;
@@ -28,6 +33,11 @@ public class Person {
         this.accountBalance = accountBalance;
     }
 
+    /**
+     * Static method that can return new person for testing purposes
+     * @param id
+     * @return new person with some preloaded attributes
+     * */
     public static Person getTestPerson(String id) {
         return new Person(id, "peter", "frantisek", 'M', 0);
     }

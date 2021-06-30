@@ -39,7 +39,7 @@ class PersonSetterTest {
 
     @Test
     void saveNewPerson() throws Exception {
-        personSetter.saveNewPerson(Person.getTestPerson(person_id));
+        personSetter.saveNew(Person.getTestPerson(person_id));
         assertTrue(personRepository.getPersonById(person_id).isPresent());
 
     }

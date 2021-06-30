@@ -1,9 +1,11 @@
 package com.example.bam.types;
 
 import com.example.bam.interfaces.IPayingDevice;
-import com.example.bam.types.Entities.PersonEntity;
 import com.example.bam.services.MoneyCalculator;
 
+/**
+ * Class presenting credit cards
+ */
 public class CreditCard extends Card implements IPayingDevice {
 
     public CreditCard() {

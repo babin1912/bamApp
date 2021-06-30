@@ -12,6 +12,9 @@ import org.springframework.stereotype.Service;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+/**
+ * Service for getting people from repository
+ */
 @Service
 public class PersonGetter implements ITypeGetter<Person> {
 
@@ -41,6 +44,11 @@ public class PersonGetter implements ITypeGetter<Person> {
                 .orElse(null);
     }
 
+    /**
+     * Getting all person cards and assign them to person
+     * @param personEntity
+     * @return person with cards
+     */
     private Person assignCreditCardsToPersonFromEntity(PersonEntity personEntity) {
         var p = IEntityService.personFromEntity(personEntity);
 

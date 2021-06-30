@@ -11,6 +11,7 @@ class CreditCardTest {
         CreditCard card = new CreditCard("645", "00");
         BankAccount bankAccount = new BankAccount();
         bankAccount.setBalance(500);
+        bankAccount.setBankAccountType(BankAccountType.NORMAL);
         assertTrue(card.payable(30, bankAccount));
     }
 
@@ -19,6 +20,7 @@ class CreditCardTest {
         CreditCard card = new CreditCard("645", "00");
         BankAccount bankAccount = new BankAccount();
         bankAccount.setBalance(29);
+        bankAccount.setBankAccountType(BankAccountType.NORMAL);
         assertFalse(card.payable(30, bankAccount));
     }
 }

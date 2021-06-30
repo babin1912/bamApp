@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
 
+/**
+ * Controller for people
+ */
 @RestController
 public class PersonController {
 
@@ -26,11 +29,20 @@ public class PersonController {
         this.personSetter = personSetter;
     }
 
+    /**
+     * Returning all people in system
+     * @return set of found people
+     */
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public Set<Person> getAllPeople() {
         return personGetter.getAll();
     }
 
+    /**
+     * Returns person with given id
+     * @param personId
+     * @return response with person in body
+     */
     @RequestMapping(value = "/find/{personId}", method = RequestMethod.GET,
             produces = {MediaType.APPLICATION_JSON_VALUE})
     @ResponseBody
@@ -38,11 +50,16 @@ public class PersonController {
         return getPersonByIdResponse(personId);
     }
 
+    /**
+     * Saving new person in system
+     * @param person that is gonna be save
+     * @return response with message
+     */
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     @ResponseBody
     public ResponseEntity<String>  saveNewPerson(@RequestBody Person person) {
         try {
-            personSetter.saveNewPerson(person);
+            personSetter.saveNew(person);
             return new ResponseEntity<>("Person was saved", HttpStatus.CREATED);
         } catch (Exception exception) {
             return new ResponseEntity<>( "Person or one of cards already exists",HttpStatus.NOT_FOUND);

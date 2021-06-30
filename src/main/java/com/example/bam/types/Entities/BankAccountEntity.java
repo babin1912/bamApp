@@ -11,6 +11,9 @@ import org.springframework.data.redis.core.RedisHash;
 import javax.persistence.Id;
 import java.io.Serializable;
 
+/**
+ * Structure of account stored in database
+ */
 @Data
 @RedisHash("BankAccountEntity")
 public class BankAccountEntity implements Serializable {

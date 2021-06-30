@@ -44,7 +44,7 @@ class CreditCardSetterTest {
     void testSaveNewCard() {
         String id = "testik";
         var people = personRepository.getAll();
-        creditCardSetter.saveNewCard(CreditCard.getTestCard(id, person_id));
+        creditCardSetter.saveNew(CreditCard.getTestCard(id, person_id));
         var j = creditCardRepository.findById(id);
         assertTrue(j.isPresent() && j.get().getCardNumber().equals(id));
     }

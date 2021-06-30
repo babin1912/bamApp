@@ -27,8 +27,6 @@ public class PersonEntity {
     @Column(name ="gender")
     private char gender;
 
-
-
     @NotNull
     @Column(name ="account_ballance")
     private int accountBalance;
@@ -44,6 +42,7 @@ public class PersonEntity {
         this.accountBalance = accountBalance;
     }
 
+    /* generated */
     public void setId(String id) {
         this.id = id;
     }
